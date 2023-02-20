@@ -12,7 +12,25 @@
 
         "start": "node server.js",
         "dev": "nodemon server.js"
-        
+
       },
 
 6. require express and cors in server.js file
+7. add the following to server.js file
+
+      const app = express();
+      const PORT = process.env.PORT || 3000;
+
+      app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+then in console/terminal: npm run dev (should see listening on 3000)
+
+> apipractice@1.0.0 dev
+> nodemon server.js
+
+[nodemon] 2.0.20
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node server.js`
+Listening on 3000
