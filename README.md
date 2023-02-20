@@ -40,5 +40,3 @@ then in console/terminal: npm run dev (should see listening on 3000)
 [nodemon] starting `node server.js`
 
 Listening on 3000
-
-8. add app.use(cors()); and "preflight" check to server.js file
