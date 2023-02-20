@@ -16,7 +16,7 @@
       },
 
 6. require express and cors in server.js file
-7. add the following to server.js file
+7. add the following to server.js file:
 
       const app = express();
       const PORT = process.env.PORT || 3000;
@@ -40,3 +40,5 @@ then in console/terminal: npm run dev (should see listening on 3000)
 [nodemon] starting `node server.js`
 
 Listening on 3000
+
+8. add app.use(cors()); and "preflight" check to server.js file
