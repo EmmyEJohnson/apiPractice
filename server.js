@@ -16,11 +16,13 @@ const cors = require("cors");
 //** Instanced Module
 const app = express();
 
-//** Middleware
+//** MIDDLEWARE
 // need for JSON requests
 app.use(express.json());
+
 // need for form requests
 app.use(express.urlencoded({ extended: false }));
+
 // creating anonymous logger instead of using morgan to log...i.e. app.use(logger('morgan'));
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
@@ -29,6 +31,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'));
 app.use(express.static('css'));
+
 // app.use(session({
   //   secret: '',
   //   resave: false,
@@ -41,7 +44,7 @@ app.use(express.static('css'));
   //** App Configuration
   // app.set('view engine', 'ejs');
   
-  //** Routes
+  //** ROUTES
   app.get('/', (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
   });
