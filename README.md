@@ -26,11 +26,17 @@
 then in console/terminal: npm run dev (should see listening on 3000)
 
 > apipractice@1.0.0 dev
+
 > nodemon server.js
 
 [nodemon] 2.0.20
+
 [nodemon] to restart at any time, enter `rs`
+
 [nodemon] watching path(s): *.*
+
 [nodemon] watching extensions: js,mjs,json
+
 [nodemon] starting `node server.js`
+
 Listening on 3000
