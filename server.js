@@ -33,28 +33,46 @@ app.use(express.static('public'));
 app.use(express.static('css'));
 
 // app.use(session({
-  //   secret: '',
-  //   resave: false,
-  //   saveUninitialized: true
-  // }));
-  // app.use(passport.initialize());
-  // app.use(passport.session());
-  // app.use(methodOverride('_method'));
+//   secret: '',
+//   resave: false,
+//   saveUninitialized: true
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(methodOverride('_method'));
   
-  //** App Configuration
-  // app.set('view engine', 'ejs');
+//** App Configuration
+// app.set('view engine', 'ejs');
   
-  //** ROUTES
-  app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/views/index.html");
-  });
+//** ROUTES
+const timeRoutes = require("./routes/time");
+const nameRoutes = require("./routes/name");
+const jsonRoutes = require("./routes/json");
+const echoAllRoutes = require("./routes/echo-all");
 
-  app.get('/form', (req, res) => {
-    res.sendFile(__dirname + "/views/form.html");
-  });
+app.use("/routes/time", timeRoutes);
+app.use("/routes/name", nameRoutes);
+app.use("/routes/json", jsonRoutes);
+app.use("/routes/echo-all", echoAllRoutes);
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
+});
+
+app.get('/form', (req, res) => {
+  res.sendFile(__dirname + "/views/form.html");
+});
+
+app.get('/:word/echo', (req, res) => {
+  res.json({ "echo": req.params.word })
+});
+
+app.all('*', (req, res) => {
+  res.send("Invalid route");
+});
   
   
-  // pass a "preflight" check or JSON request on chrome
+// pass a "preflight" check or JSON request on chrome
 app.use(cors());
 
 app.options("*", (req, res, next) => {
