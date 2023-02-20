@@ -17,15 +17,18 @@ const cors = require("cors");
 const app = express();
 
 //** Middleware
+// need for JSON requests
 app.use(express.json());
+// need for form requests
 app.use(express.urlencoded({ extended: false }));
-
-// instead of using morgan to log...i.e. app.use(logger('morgan'));
+// creating anonymous logger instead of using morgan to log...i.e. app.use(logger('morgan'));
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 });
-// app.use(express.static('public'));
+
+app.use(express.static('public'));
+app.use(express.static('css'));
 // app.use(session({
   //   secret: '',
   //   resave: false,
@@ -41,6 +44,10 @@ app.use((req, res, next) => {
   //** Routes
   app.get('/', (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
+  });
+
+  app.get('/form', (req, res) => {
+    res.sendFile(__dirname + "/views/form.html");
   });
   
   
