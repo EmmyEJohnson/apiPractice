@@ -39,6 +39,9 @@ app.use((req, res, next) => {
   // app.set('view engine', 'ejs');
   
   //** Routes
+  app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/views/index.html");
+  });
   
   
   // pass a "preflight" check or JSON request on chrome
