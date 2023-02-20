@@ -9,8 +9,10 @@
     in package.json file:
 
       "scripts": {
+
         "start": "node server.js",
         "dev": "nodemon server.js"
+        
       },
 
 6. require express and cors in server.js file
