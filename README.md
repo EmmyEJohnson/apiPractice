@@ -7,10 +7,10 @@
 5. erase "test" under scripts in the package.json file and add "start": "node server.js" (which launches the server app) "dev": "nodemon server.js" so when you use nodemon in terminal is much like using live server 
 
     in package.json file:
-    
+
       "scripts": {
         "start": "node server.js",
         "dev": "nodemon server.js"
       },
 
-6. require express in server.js file
+6. require express and cors in server.js file
