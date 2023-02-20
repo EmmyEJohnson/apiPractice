@@ -41,9 +41,7 @@ app.use(express.static('css'));
 // app.use(passport.session());
 // app.use(methodOverride('_method'));
   
-//** App Configuration
-// app.set('view engine', 'ejs');
-  
+
 //** ROUTES
 const timeRoutes = require("./routes/time");
 const nameRoutes = require("./routes/name");
